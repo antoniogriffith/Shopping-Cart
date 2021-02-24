@@ -37,6 +37,25 @@ def to_usd(my_price):
     return f"${my_price:,.2f}" #> $12,000.71
 
 
-# TODO: write some Python code here to produce the desired output
+## Information Capture
 
-print(products)
+#String Variables Seperated for Readability and Changability
+promptString = "\nPlease enter a product identifier, or 'DONE' if there are no more items: "
+errorString = "\nHey, are you sure that product identifier is correct? Please try again!"
+
+ #Data Collection and Validation
+
+while True:
+    # Variable storing user input
+    identifier = input(promptString) # of type string
+
+    if(identifier == 'DONE'):
+        break
+
+    else:
+
+        # List variable containing the items on the receipt
+        receipt = [item for item in products if str(item['id']) == str(identifier)]
+        matching_product = receipt[0]
+        print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+
