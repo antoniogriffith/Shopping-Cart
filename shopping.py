@@ -40,22 +40,35 @@ def to_usd(my_price):
 ## Information Capture
 
 #String Variables Seperated for Readability and Changability
-promptString = "\nPlease enter a product identifier, or 'DONE' if there are no more items: "
+promptString = "Please enter a product identifier, or 'DONE' if there are no more items: "
 errorString = "\nHey, are you sure that product identifier is correct? Please try again!"
 
- #Data Collection and Validation
+#Data Collection and Validation
+
+# List variable containing the selected ids on the receipt
+receipt = []
+total_price = 0
 
 while True:
     # Variable storing user input
     identifier = input(promptString) # of type string
+    
 
     if(identifier == 'DONE'):
         break
 
     else:
+        receipt.append(identifier)
 
-        # List variable containing the items on the receipt
-        receipt = [item for item in products if str(item['id']) == str(identifier)]
-        matching_product = receipt[0]
-        print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
 
+
+
+## Information Display
+for item in receipt:
+    matching_products = [p for p in products if p["id"] == int(item)]
+    matching_product = matching_products[0]
+    total_price = total_price + matching_product["price"]
+    print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+
+
+print("TOTAL PRICE =", total_price) #TODO format as USD
