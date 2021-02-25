@@ -1,7 +1,12 @@
 # shopping_cart.py
+# Created by Antonio Griffith-Keaton on 02/24/21
+# OPIM 243
+# Professor Michael Rossetti
+
+#Modules
 import datetime
 
-
+#Products Variable Stores the Grocery's Data
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -89,7 +94,7 @@ for item in receipt:
 #Variables to Print
 groceryStoreName = "HALF FOODS GROCERY"
 groceryWebsite = "WWW.HALFFOODS.COM"
-checkoutTime = datetime.datetime.now()
+checkoutTime = datetime.datetime.now().strftime("%Y-%m-%d %I:%M %p")
 
 #Computations for Tax and Total Cost
 taxRate = .0875
@@ -109,13 +114,13 @@ print("#> SELECTED PRODUCTS:")
 # Print Selected Products Here
 for item in receipt:
     product = [p for p in products if p['id'] == int(item)]
-    print(" ... ", product[0]["name"], "(", to_usd(product[0]["price"]), ")")
+    print(" ... ", product[0]["name"], "(" , to_usd(product[0]["price"]), ")")
 
 print("#> ---------------------------------------------------")
 
 print("#> SUBTOTAL:", to_usd(total_price))
-print("#> TAX: ", to_usd(taxCost))
-print("#> TOTAL: ", to_usd(totalCost))
+print("#> TAX:", to_usd(taxCost))
+print("#> TOTAL:", to_usd(totalCost))
 print("#> ---------------------------------------------------")
 print("THANKS, SEE YOU AGAIN SOON!")
 print("#> ---------------------------------------------------")
