@@ -31,6 +31,7 @@ products = [
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
 
+#Converts a numeric value to usd-formatted string
 def to_usd(my_price):
     """
     Converts a numeric value to usd-formatted string, for printing and display purposes.
@@ -44,20 +45,21 @@ def to_usd(my_price):
     return f"${my_price:,.2f}" #> $12,000.71
 
 
-## Information Capture
+#-----------------------------------------------------------------------------------------
+##                              Information Capture                                       |
+#-----------------------------------------------------------------------------------------
+
 
 #String Variables Seperated for Readability and Changability
 promptString = "Please enter a product identifier, or 'DONE' if there are no more items: "
 errorString = "\nHey, are you sure that product identifier is correct? Please try again!"
-
-#Data Collection and Validation
 
 # List variable containing the selected ids on the receipt
 receipt = []
 total_price = 0
 
 
-
+#Data Collection and Validation
 while True:
     # Variable storing user input
     identifier = input(promptString) # of type string
@@ -78,13 +80,14 @@ while True:
         if(count == max):
             print(errorString)
        
-    
 
 
+#-----------------------------------------------------------------------------------------
+##                              Information Display                                       |
+#-----------------------------------------------------------------------------------------
 
-## Information Display
 
-
+#Calculating Total Price
 for item in receipt:
     matching_products = [p for p in products if p["id"] == int(item)]
     matching_product = matching_products[0]
