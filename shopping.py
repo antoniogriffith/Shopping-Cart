@@ -51,6 +51,8 @@ errorString = "\nHey, are you sure that product identifier is correct? Please tr
 receipt = []
 total_price = 0
 
+
+
 while True:
     # Variable storing user input
     identifier = input(promptString) # of type string
@@ -58,11 +60,19 @@ while True:
     if(identifier == 'DONE'):
         break
 
+    #Data Validation Must Go Here
+    count = 0
+    max = len(products)
 
     for p in products:
-        if (int(identifier) == p["id"]):
-            receipt.append(identifier)
-            break
+        count += 1
+        if (identifier == str(p["id"])):
+           receipt.append(identifier)
+           break
+        
+        if(count == max):
+            print(errorString)
+       
     
 
 
@@ -99,7 +109,7 @@ print("#> SELECTED PRODUCTS:")
 # Print Selected Products Here
 for item in receipt:
     product = [p for p in products if p['id'] == int(item)]
-    print(" ... ", product[0]["name"], " ", to_usd(product[0]["price"]) )
+    print(" ... ", product[0]["name"], "(", to_usd(product[0]["price"]), ")")
 
 print("#> ---------------------------------------------------")
 
