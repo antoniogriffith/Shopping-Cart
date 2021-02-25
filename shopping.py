@@ -1,4 +1,6 @@
 # shopping_cart.py
+import datetime
+
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -52,23 +54,58 @@ total_price = 0
 while True:
     # Variable storing user input
     identifier = input(promptString) # of type string
-    
 
     if(identifier == 'DONE'):
         break
 
-    else:
-        receipt.append(identifier)
 
+    for p in products:
+        if (int(identifier) == p["id"]):
+            receipt.append(identifier)
+            break
+    
 
 
 
 ## Information Display
+
+
 for item in receipt:
     matching_products = [p for p in products if p["id"] == int(item)]
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
-    print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
 
 
-print("TOTAL PRICE =", total_price) #TODO format as USD
+#Variables to Print
+groceryStoreName = "HALF FOODS GROCERY"
+groceryWebsite = "WWW.HALFFOODS.COM"
+checkoutTime = datetime.datetime.now()
+
+#Computations for Tax and Total Cost
+taxRate = .0875
+taxCost = total_price * taxRate
+totalCost = total_price + taxCost
+
+
+#Output Table
+print("#> ---------------------------------------------------")
+print("#> " , groceryStoreName)
+print("#> ", groceryWebsite)
+print("#> ---------------------------------------------------")
+print("#> CHECKOUT AT:", checkoutTime)
+print("#> ---------------------------------------------------")
+print("#> SELECTED PRODUCTS:")
+
+# Print Selected Products Here
+for item in receipt:
+    product = [p for p in products if p['id'] == int(item)]
+    print(" ... ", product[0]["name"], " ", to_usd(product[0]["price"]) )
+
+print("#> ---------------------------------------------------")
+
+print("#> SUBTOTAL:", to_usd(total_price))
+print("#> TAX: ", to_usd(taxCost))
+print("#> TOTAL: ", to_usd(totalCost))
+print("#> ---------------------------------------------------")
+print("THANKS, SEE YOU AGAIN SOON!")
+print("#> ---------------------------------------------------")
