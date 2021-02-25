@@ -57,7 +57,7 @@ python shopping.py
 ## Step 3: User is able to enter as many identifiers as required. Once completed, enter "DONE",
 
 
- Note: The program will then calulcate the subtotal, tax, and total cost and output them to the clear.
+ Note: The program will then calulcate the subtotal, tax, and total cost and output them to the screen.
 
 
 ## Step 4: Program will then exit automatically.
