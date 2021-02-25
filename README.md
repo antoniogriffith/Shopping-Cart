@@ -6,6 +6,9 @@ Business application designed for grocery store. Involves the checkout clerk sca
 https://github.com/prof-rossetti/intro-to-python/blob/master/projects/shopping-cart/README.md
 
 
+# Prerequisites
+* Command-Line Application (Terminal or Git Bash)
+* Python Installation (3.7+)
 
 # Installation
 
