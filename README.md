@@ -11,7 +11,7 @@ https://github.com/prof-rossetti/intro-to-python/blob/master/projects/shopping-c
 
 Clone or download from [Github Source] (https://github.com/antoniogriffith/Shopping-Cart), then navigate into the project repository:
 
-Ensure that you are aware ware the repository has been saved locally
+Ensure that you are aware where the repository has been saved locally
 
 ```sh
 cd Shopping-Cart
@@ -25,7 +25,7 @@ cd Shopping-Cart
 python shopping.py
 ```
 
-## Step 2: User input will be specfic "product" identifiers contained in the variable below:
+## Step 2: User input will be asked to enter specfic "product" identifiers contained in the variable below:
 
 ```products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -60,4 +60,4 @@ python shopping.py
 ## Step 4: Program will then exit automatically.
 
 
-To use the program a gain, repeat Step 1
+To use the program again, repeat Step 1
